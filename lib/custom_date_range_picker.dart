@@ -243,7 +243,7 @@ class CustomDateRangePickerState extends State<CustomDateRangePicker>
                                   },
                                   child: const Center(
                                     child: Text(
-                                      'Cancel',
+                                      'Reset',
                                       style: TextStyle(
                                         fontWeight: FontWeight.w500,
                                         fontSize: 18,
