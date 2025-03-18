@@ -438,9 +438,16 @@ class CustomCalendarState extends State<CustomCalendar> {
   }
 
   void onDateClick(DateTime date) {
-    if (startDate == null) {
+    if (startDate == null && endDate == null) {
       startDate = date;
-      endDate = null; // Clear endDate for potential range selection
+      endDate = date;
+    } else if (startDate != null && endDate != null && startDate == endDate) {
+      if (date.isAfter(startDate!)) {
+        endDate = date;
+      } else if (date.isBefore(startDate!)) {
+        endDate = startDate;
+        startDate = date;
+      }
     } else if (startDate != null && endDate == null) {
       if (date.isAfter(startDate!)) {
         endDate = date;
@@ -462,7 +469,9 @@ class CustomCalendarState extends State<CustomCalendar> {
     setState(() {
       try {
         widget.startEndDateChange!(startDate!, endDate!);
-      } catch (_){}
-      });
+      } catch (_) {}
+    });
   }
+
+
 }
