@@ -1,3 +1,5 @@
+import 'package:custom_date_range_picker/src/utils/localization_helper.dart';
+
 import 'custom_calendar.dart';
 import 'package:flutter/material.dart';
 
@@ -77,6 +79,7 @@ class CustomDateRangePickerState extends State<CustomDateRangePicker>
     startDate = widget.initialStartDate;
     endDate = widget.initialEndDate;
     animationController?.forward();
+    LocalizationManager.load(Locale('ar'));
     super.initState();
   }
 
@@ -281,10 +284,10 @@ class CustomDateRangePickerState extends State<CustomDateRangePicker>
                                       Navigator.pop(context);
                                     } catch (_) {}
                                   },
-                                  child: const Center(
+                                  child: Center(
                                     child: Text(
-                                      'Apply',
-                                      style: TextStyle(
+                                      LocalizationManager.translate('apply'),
+                                      style: const TextStyle(
                                         fontWeight: FontWeight.w500,
                                         fontSize: 18,
                                         color: Colors.white,

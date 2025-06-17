@@ -11,10 +11,15 @@ dependencies:
   flutter:
     sdk: flutter
   intl: ^0.18.1
+  easy_localization: ^3.0.7
 
 dev_dependencies:
   flutter_lints: ^2.0.3
   flutter_test:
     sdk: flutter
 
-flutter: null
+flutter:
+
+  assets:
+    - packages/custom_date_range_picker/src/lang/ar.json
+    - packages/custom_date_range_picker/src/lang/en.json
